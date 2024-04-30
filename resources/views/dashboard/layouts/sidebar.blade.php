@@ -14,8 +14,22 @@
                 </a>
             </li>
 
-        </ul>
+            @can('is_admin')
 
+
+         <h6 class="sidebar-heading d-flex justify-content-between align-item-center px-3 mt-4 mb-1 text-muted">
+
+            <span>Administrator</span>
+         </h6>
+            <li class="nav-item" >
+                <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="/dashboard/categories">
+                    <span data-feather="grid"></span>
+                    Category buku
+                </a>
+            </li>
+
+        </ul>
+        @endcan
 
     </div>
 </nav>

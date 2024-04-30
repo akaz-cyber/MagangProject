@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostControllerr;
 
 /*
@@ -52,7 +53,7 @@ Route::get('/categories/{category:slug}', function(Category $category){
     return view('contact',[
         'title' => "Post by Category : $category->name",
         'posts' => $category->posts->load('category','user'),
-        // 'category' => $category->name
+
     ]);
 });
 
@@ -78,4 +79,8 @@ Route::get('/dashboard/pots{{post:slug}}', [DashboardPostControllerr::class, 'sh
 Route::get('/dashboard/posts/checkSlug', [DashboardPostControllerr::class, 'checkSlug'])->middleware('auth');
 
 Route::resource('/dashboard/posts',
- DashboardPostControllerr::class)->middleware('auth');
+DashboardPostControllerr::class)->middleware('auth');
+
+
+Route::resource('/dashboard/categories',
+AdminCategoryController::class )->except('show')->middleware('is_admin');

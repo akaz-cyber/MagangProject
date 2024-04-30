@@ -23,7 +23,7 @@ class PostController extends Controller
      }
 
        return view('contact',[
-            "title" => "All Posts" . $title,
+            "title" => "All books" . $title,
             // "post" => post::all()
             "posts" => Post::latest()->filter(request(['search', 'category','author']))->paginate(7)
             ->withQueryString()

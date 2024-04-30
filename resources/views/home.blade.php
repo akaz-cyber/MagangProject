@@ -1,17 +1,6 @@
 @extends('layouts.main')
 @section('title','Home')
 @section('main')
-<style>
-
-body{
-    height: 100vh;
-    background-color: #004864;
-    background-image: linear-gradient(to bottom, #004864, #647FAC);
-    background-repeat: no-repeat;
-}
-</style>
-
-
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
